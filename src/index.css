@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: 'Astellan';
+  src: url('./assets/Astellan-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
