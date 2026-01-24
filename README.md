@@ -1,2 +1,2 @@
 # tahoe-resonance
-Website
+Website TahoeResonance
