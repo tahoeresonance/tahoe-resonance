@@ -6,6 +6,7 @@ import personB from "./assets/Steve.jpg";
 import newHomeHero from "./assets/Home.jpg";
 import missionImage2 from "./assets/Trial.png";
 import serviceImage1 from "./assets/service.png";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 
 const CONTENT = {
   brand: {
@@ -17,39 +18,44 @@ const CONTENT = {
   },
   doctor: {
     name: "Vuppalapati . D (MD)",
-    credentials: "Cheif Medical Officer",
-    experience: "26 Years of Experience",
+    credentials: "Chief Medical Officer",
+    experience: "27 Years of Experience",
     // vision: "{{Doctor's vision paragraph from doc}}",
     photoUrl: "https://images.unsplash.com/photo-1584982751601-97dcc096659c",
   },
   about: [
     {
       heading: "Overview",
-      intro: "Located in Verdi, Nevada.",
+      intro: "Luxury Residential Treatment in the Sierra Nevadas",
       points: [
-        "Set in a LUXURY HOME WITH MOUNTAIN VIEWS OF THE SIERRAS, NEVADA offers detox, residential care for substance use and co-occurring mental health conditions.",
-        "The center provides a luxury recovery experience with executive and professional tracks available. Clients can choose between 12-step or non-12-step pathways.",
-        "Personal cell phones and laptops are allowed so clients can stay connected to work and family life during treatment.",
-        "The facility will be staffed with a highly experienced CEO, who was the CEO of Reno and Las Vegas facilities, MD Psychiatrist, who is fellowship trained at Yale University and practiced in Nevada for 26 years and licensed in Nevada and California. Also, Hospitalist will be available to do a complete history and physicals.",
+        "Nestled in a private luxury home with sweeping mountain views of the Sierra Nevadas, Tahoe Resonance provides comprehensive detox and residential treatment for substance use disorders and co-occurring mental health conditions.",
+        "Our program delivers a high-end recovery experience designed for professionals and executives who require discretion, flexibility, and clinical excellence. Specialized executive and professional tracks allow clients to continue managing work and personal responsibilities while receiving comprehensive care.",
+        "Clients may choose between 12-step and non-12-step treatment pathways, ensuring a personalized, evidence-based approach to recovery. To support ongoing connection with family and professional obligations, personal cell phones and laptops are permitted throughout treatment.",
+        "Exceptional Clinical & Executive Leadership",
+        "Our facility is guided by a distinguished leadership and medical team, including:",
+        "A Chief Executive Officer with extensive prior experience leading treatment centers in both Reno and Las Vegas",
+        "3 fellowships-trained at Yale University, with 27 years of clinical experience in Nevada, and licensed in Nevada and California",
+        "An on-site Hospitalist who conducts comprehensive medical evaluations, including complete histories and physical examinations",
+        "By combining luxury accommodations, individualized care, and world-class medical oversight, Tahoe Resonance offers an environment where healing, privacy, and long-term recovery can thrive.",
       ],
     },
     {
       heading: "Ages Served",
-      points: ["Adults (Ages 21 – 90)"],
+      points: ["Adults (Ages 21 and above)"],
     },
-    {
-      heading: "Genders Accepted",
-      points: [
-        "Female",
-        "Male",
-      ],
-    },
-    {
-      heading: "Language Served",
-      points: [
-        "English",
-      ],
-    },
+    // {
+    //   heading: "Genders Accepted",
+    //   points: [
+    //     "Female",
+    //     "Male",
+    //   ],
+    // },
+    // {
+    //   heading: "Language Served",
+    //   points: [
+    //     "English",
+    //   ],
+    // },
     {
       heading: "Treatment",
       points: [
@@ -71,37 +77,43 @@ const CONTENT = {
       key: "Recovery",
       title: "A country side luxury for Recovery",
       description: "Overlooking the Sierra Nevada mountains, the center offers a private, executive-style rehab that blends a serene environment with high-end amenities such as gourmet meals, services, fitness programs, and mountain-view rooms. The setting ensures personal attention and privacy, making it a good fit for professionals and individuals seeking a discreet, comfortable recovery experience.",
-      icon: "💪",
+      imageUrl:
+        "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80",
     },
     {
       key: "Mental_Health",
       title: "Integrated Care for Substance Use and Mental Health",
-      description: "The center specializes in treating substance use disorders alongside co-occurring mental health conditions. Each client receives an adapted treatment plan that addresses both together, with the goal of long-term stability and resilience. Evidence-based therapy is interwoven. Clients also have access to grief counseling and relapse prevention support.",
-      icon: "🧭",
+      description: "The center specializes in treating substance use disorders alongside co-occurring mental health conditions. Each client receives an adapted treatment plan that addresses both together, with the goal of long-term stability and resilience. Evidence-based therapy is interwoven with trauma-informed care. Clients also have access to grief counseling and relapse prevention support. The center offers 12-Step, non-12-Step, SMART Recovery, and faith-based tracks so clients can choose what best resonates with them.",
+      imageUrl:
+        "https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80",
     },
     {
       key: "Recreation",
       title: "Mind-Body Healing and Recreation",
-      description: "To support whole-person recovery, the program incorporates holistic practices such as yoga, meditation, nutritional counseling, aromatherapy, and art and music therapy. Clients also enjoy activities such as hiking, paddle boarding near Lake Tahoe. These options provide healthy ways to manage stress, rebuild physical health, and reconnect with personal well-being.",
-      icon: "🧰",
+      description: "To support whole-person recovery, the program incorporates holistic practices such as yoga, meditation, acupuncture, nutritional counseling, aromatherapy, and art and music therapy. Clients also enjoy activities such as hiking, paddle boarding near Lake Tahoe. These options provide healthy ways to manage stress, rebuild physical health, and reconnect with personal well-being.",
+      imageUrl:
+        "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1600&q=80",
     },
     {
       key: "Tech-Friendly",
       title: "Flexible and Tech-Friendly",
       description: "Recognizing the realities of modern life, the center allows the use of cell phones and laptops. This makes it possible for executives, students, and parents to manage work, school, or family responsibilities while in treatment. Stays are flexible, ranging from 4 weeks to 90 days, depending on each client’s needs and progress.",
-      icon: "🫶",
+      imageUrl:
+        "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
     },
     {
       key: "Detox",
       title: "Safe, Professional Detox",
       description: "Detox is often the first step in treatment, and the center provides medically supervised detox on-site. Medications for addiction treatment (MAT) are prescribed when needed. Each process is customized to the client’s history and needs, with 24/7 monitoring to ensure safety and comfort during withdrawal. Patients who go through moderate to severe withdrawals could be recommended for brief hospitalization for medical clearance. All clients will need medical clearance before being admitted to the program.",
-      icon: "🧰",
+      imageUrl:
+        "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1600&q=80",
     },
     {
       key: "Support",
       title: "Aftercare and Continued Support",
       description: "Recovery planning begins on day one. Discharge plans may include step-down care through intensive outpatient programs (IOP), at your hometown programs or the closest programs near your home, access to recovery coaches, or connection to alumni networks and private online groups. These aftercare resources help clients transition back into daily life with a greater sense of stability.",
-      icon: "💪",
+      imageUrl:
+        "https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1600&q=80",
     },
   ],
   amenities: [
@@ -113,13 +125,13 @@ const CONTENT = {
         "•	Hiking trails",
         "•	Gourmet meals",
         "•	Business center",
-        "•	Access to nature",
+        // "•	Access to nature",
         "•	Airport pickup & drop-off",
         "•	Dietary accommodations",
         "•	Healthy meals",
         "•	In-house chef",
         "•	Outdoor relaxation lounge",
-        "•	Walking paths, Mountain Bike Trails",
+        // "•	Walking paths, Mountain Bike Trails",
         "•	Equestrian Therapy",
       ],
       // icon: "💪",
@@ -177,7 +189,7 @@ const CONTENT = {
       bio: [
         "Trained at University of Minnesota, Minneapolis, MN",
         "Fellowship trained at Yale University, New Haven, CT",
-        "26 years of clinical experience"
+        "27 years of clinical experience"
       ],
       moreInfo: `
       Medical Director Senior Bridges at Northern West Speciality Hospital, Reno, Nevada & Carson Valley Medical Center, Gardnerville, Nevada. 
@@ -215,11 +227,11 @@ const CONTENT = {
     },
   ],
   contact: {
-    phone: "{{Phone number}}",
-    email: "{{Email address}}",
-    address: "605 Deer Mountain Road/2255 Warrior Lane Verdi, Nevada",
-    hours: "{{Working hours}}",
-    mapEmbedUrl: "https://maps.app.goo.gl/kzSRwGLNy3wHcRkg6",
+    phone: "+1 (000) 000-0000",
+    email: "info@tahoeresonance.com",
+    address: "625 Onyo Way Sparks, Nevada, 89441",
+    hours: "Mon – Fri, 9 AM – 6 PM",
+    mapEmbedUrl: "https://www.google.com/maps?q=625%20Onyo%20Way%20Sparks%20NV%2089441&output=embed",
   },
   cta: {
     button: "Request Appointment",
@@ -462,33 +474,117 @@ const About = () => (
   </main>
 );
 
-const Services = () => (
-  <main>
-    <Section>
-      <Container>
-        <FadeIn inView={false}>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-slate-800 mb-8">Services</h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {CONTENT.services.map((s) => (
-              <article key={s.key} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition">
-                <div className="text-3xl" aria-hidden>{s.icon}</div>
-                <h3 className="mt-3 text-lg font-semibold text-slate-800">{s.title}</h3>
-                <p className="mt-2 text-slate-600 leading-relaxed">{s.description}</p>
-              </article>
-            ))}
-          </div>
-        </FadeIn>
-      </Container>
-    </Section>
-    <Section className="w-full relative">
-      <img
-        src={serviceImage1}
-        alt="Service Visual"
-        className="w-full h-[20vh] sm:h-[80vh] object-cover"
-      />
-    </Section>
-  </main>
-);
+const Services = () => {
+  const scrollRef = React.useRef(null);
+
+  const scrollByCard = (dir) => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const firstCard = el.querySelector("[data-service-card='true']");
+    const cardW = firstCard ? firstCard.getBoundingClientRect().width : 900;
+
+    el.scrollBy({ left: dir * (cardW + 28), behavior: "smooth" });
+  };
+
+  return (
+    <main>
+      <Section>
+        <Container>
+          <FadeIn inView={false}>
+            <div className="flex items-center justify-between gap-4 mb-6">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-slate-800">
+                Services
+              </h2>
+
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => scrollByCard(-1)}
+                  className="h-11 w-11 rounded-full border border-slate-200 bg-white shadow-sm hover:shadow transition text-2xl leading-none"
+                  aria-label="Scroll left"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollByCard(1)}
+                  className="h-11 w-11 rounded-full border border-slate-200 bg-white shadow-sm hover:shadow transition text-2xl leading-none"
+                  aria-label="Scroll right"
+                >
+                  ›
+                </button>
+              </div>
+            </div>
+
+            {/* Slider track */}
+            <div
+              ref={scrollRef}
+              className="
+                flex gap-7 overflow-x-auto pb-5
+                scroll-smooth
+                [scrollbar-width:none]
+                [-webkit-overflow-scrolling:touch]
+                snap-x snap-mandatory
+              "
+              style={{ msOverflowStyle: "none" }}
+            >
+              <style>{`
+                .hideScroll::-webkit-scrollbar { display: none; }
+              `}</style>
+
+              {CONTENT.services.map((s) => (
+                <article
+                  key={s.key}
+                  data-service-card="true"
+                  className="
+                    snap-start flex-none
+                    w-[92vw] sm:w-[720px] lg:w-[980px]
+                    rounded-3xl border border-slate-200 bg-white
+                    shadow-sm hover:shadow-md transition
+                    overflow-hidden
+                  "
+                >
+                  {/* Image */}
+                  <div className="relative h-[220px] sm:h-[280px] lg:h-[340px]">
+                    <img
+                      src={s.imageUrl}
+                      alt={s.title}
+                      className="absolute inset-0 h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                    {/* subtle overlay for readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
+                    <h3 className="absolute bottom-4 left-5 right-5 text-white text-xl sm:text-2xl font-semibold">
+                      {s.title}
+                    </h3>
+                  </div>
+
+                  {/* Text */}
+                  <div className="p-6 sm:p-8">
+                    <p className="text-slate-700 leading-relaxed text-base sm:text-lg">
+                      {s.description}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <p className="mt-3 text-sm text-slate-500">Swipe to explore →</p>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      <Section className="w-full relative">
+        <img
+          src={serviceImage1}
+          alt="Service Visual"
+          className="w-full h-[20vh] sm:h-[80vh] object-cover"
+        />
+      </Section>
+    </main>
+  );
+};
 
 const Amenities = () => (
   <main>
@@ -681,12 +777,34 @@ const Contact = () => (
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
               <h2 className="text-2xl sm:text-3xl font-semibold text-slate-800">Contact Us</h2>
-              <ul className="mt-4 space-y-2 text-slate-600">
-                <li><span className="font-semibold text-slate-800">Phone:</span> <a className="hover:text-sky-700" href={`tel:${CONTENT.contact.phone}`}>{CONTENT.contact.phone}</a></li>
-                <li><span className="font-semibold text-slate-800">Email:</span> <a className="hover:text-sky-700" href={`mailto:${CONTENT.contact.email}`}>{CONTENT.contact.email}</a></li>
-                <li><span className="font-semibold text-slate-800">Address:</span> {CONTENT.contact.address}</li>
-                <li><span className="font-semibold text-slate-800">Hours:</span> {CONTENT.contact.hours}</li>
-              </ul>
+              
+              <div className="mt-6 space-y-4 text-left">
+              <a
+                href={`tel:${CONTENT.contact.phone}`}
+                className="flex items-center gap-4 text-slate-800 hover:text-sky-700"
+              >
+                <FaPhoneAlt className="text-xl shrink-0" />
+                <span className="text-xl">{CONTENT.contact.phone}</span>
+              </a>
+
+              <a
+                href={`mailto:${CONTENT.contact.email}`}
+                className="flex items-center gap-4 text-slate-800 hover:text-sky-700"
+              >
+                <FaEnvelope className="text-xl shrink-0" />
+                <span className="text-xl">{CONTENT.contact.email}</span>
+              </a>
+
+              <div className="flex items-center gap-4 text-slate-800">
+                <FaMapMarkerAlt className="text-xl shrink-0" />
+                <span className="text-xl">{CONTENT.contact.address}</span>
+              </div>
+
+              <div className="flex items-center gap-4 text-slate-800">
+                <FaClock className="text-xl shrink-0" />
+                <span className="text-xl">{CONTENT.contact.hours}</span>
+              </div>
+            </div>
 
               {/* Appointment form */}
               <form className="mt-8 grid gap-4" onSubmit={(e)=>e.preventDefault()}>

@@ -40,3 +40,39 @@
 .read-the-docs {
   color: #888;
 }
+
+.contactInfo {
+  text-align: left;
+}
+
+.contactTitle {
+  font-size: 56px;
+  font-weight: 800;
+  margin-bottom: 18px;
+  color: #1f2a44;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 26px;
+  color: #1f2a44;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.infoRow:hover {
+  opacity: 0.9;
+}
+
+.infoIcon {
+  font-size: 26px;
+  flex: 0 0 30px;   /* keeps all text aligned */
+}
