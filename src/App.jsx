@@ -3,9 +3,11 @@ import { Routes, Route, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import personA from "./assets/PersonA.webp";
 import personB from "./assets/Steve.jpg";
+import personC from "./assets/DWK.png";
 import newHomeHero from "./assets/Home.jpg";
 import missionImage2 from "./assets/Trial.png";
 import serviceImage1 from "./assets/service.png";
+import Aftercare from "./assets/Aftercare.png";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 
 const CONTENT = {
@@ -21,7 +23,7 @@ const CONTENT = {
     credentials: "Chief Medical Officer",
     experience: "27 Years of Experience",
     // vision: "{{Doctor's vision paragraph from doc}}",
-    photoUrl: "https://images.unsplash.com/photo-1584982751601-97dcc096659c",
+    photoUrl: personC,
   },
   about: [
     {
@@ -59,7 +61,7 @@ const CONTENT = {
     {
       heading: "Treatment",
       points: [
-        "Residential detoxification for mild to moderate symtoms",
+        "Residential detoxification for mild to moderate symtoms - [COMING SOON]",
         "Both short term 30 day rehab, 60 day and 90 day rehab",
       ],
     },
@@ -76,35 +78,35 @@ const CONTENT = {
     {
       key: "Recovery",
       title: "A country side luxury for Recovery",
-      description: "Overlooking the Sierra Nevada mountains, the center offers a private, executive-style rehab that blends a serene environment with high-end amenities such as gourmet meals, services, fitness programs, and mountain-view rooms. The setting ensures personal attention and privacy, making it a good fit for professionals and individuals seeking a discreet, comfortable recovery experience.",
+      description: "Overlooking the Sierra Nevada mountains, the center offers a private, executive-style rehab that blends a serene environment with high-end amenities such as gourmet meals, Lake Tahoe, fitness programs, and mountain-view rooms. The setting ensures personal attention and privacy, making it a good fit for professionals and individuals seeking a discreet, comfortable recovery experience.",
       imageUrl:
         "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80",
     },
     {
       key: "Mental_Health",
       title: "Integrated Care for Substance Use and Mental Health",
-      description: "The center specializes in treating substance use disorders alongside co-occurring mental health conditions. Each client receives an adapted treatment plan that addresses both together, with the goal of long-term stability and resilience. Evidence-based therapy is interwoven with trauma-informed care. Clients also have access to grief counseling and relapse prevention support. The center offers 12-Step, non-12-Step, SMART Recovery, and faith-based tracks so clients can choose what best resonates with them.",
+      description: "The center specializes in treating substance use disorders alongside co-occurring mental health conditions. Each client receives an adapted treatment plan that addresses both together, with the goal of long-term stability and resilience. Clients also have access to grief counseling and relapse prevention support. The center offers 12-Step, non-12-Step, SMART Recovery, and faith-based tracks so clients can choose what best resonates with them.",
       imageUrl:
         "https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80",
     },
     {
       key: "Recreation",
       title: "Mind-Body Healing and Recreation",
-      description: "To support whole-person recovery, the program incorporates holistic practices such as yoga, meditation, acupuncture, nutritional counseling, aromatherapy, and art and music therapy. Clients also enjoy activities such as hiking, paddle boarding near Lake Tahoe. These options provide healthy ways to manage stress, rebuild physical health, and reconnect with personal well-being.",
+      description: "To support whole-person recovery, the program incorporates holistic practices such as yoga, meditation, nutritional counseling, aromatherapy, and art and music therapy. Clients also enjoy activities such as hiking, paddle boarding near Lake Tahoe. These options provide healthy ways to manage stress, rebuild physical health, and reconnect with personal well-being.",
       imageUrl:
         "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1600&q=80",
     },
     {
       key: "Tech-Friendly",
       title: "Flexible and Tech-Friendly",
-      description: "Recognizing the realities of modern life, the center allows the use of cell phones and laptops. This makes it possible for executives, students, and parents to manage work, school, or family responsibilities while in treatment. Stays are flexible, ranging from 4 weeks to 90 days, depending on each client’s needs and progress.",
+      description: "Recognizing the realities of modern life, the center allows the use of cell phones and laptops. This makes it possible for executives, students, and parents to manage work, school, or family responsibilities while in treatment. To ensure a safe, respectful, and confidential environment for everyone, client privacy is strictly protected. While personal devices are permitted, taking photographs or videos of other clients, staff members, or any treatment-related activities is strictly prohibited. Stays are flexible, ranging from 4 weeks to 90 days, depending on each client’s needs and progress.",
       imageUrl:
         "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
     },
     {
       key: "Detox",
       title: "Safe, Professional Detox",
-      description: "Detox is often the first step in treatment, and the center provides medically supervised detox on-site. Medications for addiction treatment (MAT) are prescribed when needed. Each process is customized to the client’s history and needs, with 24/7 monitoring to ensure safety and comfort during withdrawal. Patients who go through moderate to severe withdrawals could be recommended for brief hospitalization for medical clearance. All clients will need medical clearance before being admitted to the program.",
+      description: "Detox is often the first step in treatment, and the center provides medically supervised detox on-site. Medications for addiction treatment (MAT) are prescribed when needed. Each process is customized to the client’s history and needs, with 24/7 monitoring to ensure safety and comfort during withdrawal. Patients who go through moderate to severe withdrawals could be recommended for brief hospitalization for medical clearance. All clients will need medical clearance before being admitted to the program.<br/><br/><strong>Medically Supervised Detox Services — Coming Soon</strong>",
       imageUrl:
         "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1600&q=80",
     },
@@ -112,8 +114,7 @@ const CONTENT = {
       key: "Support",
       title: "Aftercare and Continued Support",
       description: "Recovery planning begins on day one. Discharge plans may include step-down care through intensive outpatient programs (IOP), at your hometown programs or the closest programs near your home, access to recovery coaches, or connection to alumni networks and private online groups. These aftercare resources help clients transition back into daily life with a greater sense of stability.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1600&q=80",
+      imageUrl: Aftercare,
     },
   ],
   amenities: [
@@ -121,7 +122,7 @@ const CONTENT = {
       key: "Amenities",
       title: "Amenities",
       description: [
-        "•	Fitness center",
+        "•	Fitness center - [ COMING SOON ]",
         "•	Hiking trails",
         "•	Gourmet meals",
         "•	Business center",
@@ -132,7 +133,7 @@ const CONTENT = {
         "•	In-house chef",
         "•	Outdoor relaxation lounge",
         // "•	Walking paths, Mountain Bike Trails",
-        "•	Equestrian Therapy",
+        "•	Equestrian Therapy - [ COMING SOON ]",
       ],
       // icon: "💪",
     },
@@ -146,7 +147,7 @@ const CONTENT = {
         "•	Internet access",
         "•	Laundry service",
         "•	Outdoor space",
-        "•	TV/Theatre",
+        "•	TV/Theatre - [ COMING SOON ]",
         "•	Shared Room options",
       ],
       // icon: "🧭",
@@ -202,11 +203,11 @@ const CONTENT = {
 
       Dr. Vuppalapati is married & has one son and two daughters, along with two German Shepards. His hobbies are traveling abroad, playing sports & Autoracing. 
       `,
-      photoUrl: personA,
+      photoUrl: personC,
     },
     {
       name: "Steve Shell (MBA)",
-      role: "Program Director",
+      role: "Chief Executive Officer",
       bio:[
         "Hailing from Memphis, Tennessee",
         "Moved to Reno, Nevada in 2010",
@@ -562,9 +563,12 @@ const Services = () => {
 
                   {/* Text */}
                   <div className="p-6 sm:p-8">
-                    <p className="text-slate-700 leading-relaxed text-base sm:text-lg">
-                      {s.description}
-                    </p>
+                  <p
+                    className="text-slate-700 leading-relaxed text-base sm:text-lg"
+                    dangerouslySetInnerHTML={{
+                      __html: s.description,
+                    }}
+                  />
                   </div>
                 </article>
               ))}
