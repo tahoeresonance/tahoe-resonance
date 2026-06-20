@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, NavLink, useLocation } from "react-router-dom";
+import { FaConciergeBell, FaBed, FaLeaf, FaCheckCircle, } from "react-icons/fa";
 import { motion } from "framer-motion";
 import personA from "./assets/PersonA.webp";
 import personB from "./assets/Steve.jpg";
@@ -121,50 +122,48 @@ const CONTENT = {
     {
       key: "Amenities",
       title: "Amenities",
+      icon: <FaConciergeBell />,
       description: [
-        "•	Fitness center - [ COMING SOON ]",
-        "•	Hiking trails",
-        "•	Gourmet meals",
-        "•	Business center",
-        // "•	Access to nature",
-        "•	Airport pickup & drop-off",
-        "•	Dietary accommodations",
-        "•	Healthy meals",
-        "•	In-house chef",
-        "•	Outdoor relaxation lounge",
-        // "•	Walking paths, Mountain Bike Trails",
-        "•	Equestrian Therapy - [ COMING SOON ]",
+        "Fitness center - [ COMING SOON ]",
+        "Hiking trails",
+        "Gourmet meals",
+        "Business center",
+        "Airport pickup & drop-off",
+        "Dietary accommodations",
+        "Healthy meals",
+        "In-house chef",
+        "Outdoor relaxation lounge",
+        "Equestrian Therapy - [ COMING SOON ]",
       ],
-      // icon: "💪",
     },
     {
       key: "Room Amenities",
       title: "Room Amenities",
+      icon: <FaBed />,
       description: [
-        "•	Air conditioned rooms",
-        "•	Bathroom essentials",
-        "•	Housekeeping",
-        "•	Internet access",
-        "•	Laundry service",
-        "•	Outdoor space",
-        "•	TV/Theatre - [ COMING SOON ]",
-        "•	Shared Room options",
+        "Air conditioned rooms",
+        "Bathroom essentials",
+        "Housekeeping",
+        "Internet access",
+        "Laundry service",
+        "Outdoor space",
+        "TV/Theatre - [ COMING SOON ]",
+        "Shared Room options",
       ],
-      // icon: "🧭",
     },
     {
       key: "Activities",
       title: "Activities",
+      icon: <FaLeaf />,
       description: [
-        "	•	Art therapy",
-        "•	Music therapy",
-        "•	Yoga",
-        "•	Walking trails",
-        "•	Fitness activities",
-        "•	Hiking",
-        "•	Offsite outings",
+        "Art therapy",
+        "Music therapy",
+        "Yoga",
+        "Walking trails",
+        "Fitness activities",
+        "Hiking",
+        "Offsite outings",
       ],
-      // icon: "🧰",
     },
   ],
   mission: {
@@ -625,25 +624,46 @@ const Amenities = () => (
     <Section>
       <Container>
         <FadeIn inView={false}>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-slate-800 mb-8">Amenities</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-slate-800 mb-8">
+            Amenities
+          </h2>
+
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {CONTENT.amenities.map((s) => (
               <article
                 key={s.key}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition"
+                className="
+                  rounded-2xl border border-slate-200 bg-white p-8
+                  shadow-sm hover:shadow-lg hover:-translate-y-1
+                  transition-all duration-300
+                "
               >
-                <h3 className="mt-3 text-lg font-semibold text-slate-800">
-                  {s.title}
-                </h3>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-xl text-slate-900">
+                    {s.icon}
+                  </div>
 
-                <div className="mt-2 text-slate-600 leading-relaxed space-y-2">
-                  {Array.isArray(s.description) ? (
-                    s.description.map((line, i) => (
-                      <p key={i}>{line}</p>
-                    ))
-                  ) : (
-                    <p>{s.description}</p>
-                  )}
+                  <div>
+                    <h3 className="text-xl font-semibold text-slate-800">
+                      {s.title}
+                    </h3>
+                    <div className="w-10 h-[2px] bg-slate-900 mt-2" />
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  {s.description.map((line, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start gap-3 text-slate-600"
+                    >
+                      <FaCheckCircle
+                        className="mt-1 text-slate-800 shrink-0"
+                        size={14}
+                      />
+                      <span>{line}</span>
+                    </div>
+                  ))}
                 </div>
               </article>
             ))}
