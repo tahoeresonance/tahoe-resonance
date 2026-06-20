@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, NavLink, useLocation } from "react-router-dom";
-import { FaConciergeBell, FaBed, FaLeaf, FaCheckCircle, } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock, FaConciergeBell, FaBed, FaLeaf, FaCheckCircle, } from "react-icons/fa";
 import { motion } from "framer-motion";
 import personA from "./assets/PersonA.webp";
 import personB from "./assets/Steve.jpg";
@@ -9,7 +9,6 @@ import newHomeHero from "./assets/Home.jpg";
 import missionImage2 from "./assets/Trial.png";
 import serviceImage1 from "./assets/service.png";
 import Aftercare from "./assets/Aftercare.png";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 
 const CONTENT = {
   brand: {
@@ -453,49 +452,52 @@ const Home = () => (
 );
 
 const About = () => (
-  <main className="bg-gradient-to-b from-sky-50/60 to-white">
+  <main className="bg-gradient-to-b from-slate-50/70 to-white">
     <Section>
       <Container>
         <FadeIn inView={false}>
-          <div className="rounded-3xl bg-white/80 shadow-sm border border-slate-200 p-8 sm:p-10">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-800 mb-6">
+          <div className="rounded-3xl bg-white shadow-sm border border-slate-200 p-8 sm:p-10">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-800">
               About Us
             </h2>
-            <div className="h-1 w-16 rounded-full bg-sky-500 mb-4" />
-            {CONTENT.about.map((section, idx) => (
-              <div key={idx} className="mt-8">
-                {section.heading && (
-                  <h3 className="text-xl font-semibold text-slate-800 mb-2">
-                    {section.heading}
-                  </h3>
-                )}
-                {section.intro && (
-                  <p className="text-slate-600 mb-3">{section.intro}</p>
-                )}
-                <ul className="list-disc pl-8 marker:text-sky-600 text-slate-700 space-y-2">
-                  {section.points.map((p, i) => (
-                    <li key={i} className="leading-relaxed">
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </FadeIn>
-      </Container>
-    </Section>
 
-    <Section className="bg-slate-50">
-      <Container>
-        <FadeIn inView={false}>
-          <div className="grid gap-10 lg:grid-cols-2 items-center">
-            <img className="w-full rounded-2xl shadow" src={CONTENT.doctor.photoUrl} alt={CONTENT.doctor.name} />
-            <div>
-              <h3 className="text-2xl sm:text-3xl font-semibold text-slate-800">{CONTENT.doctor.name}</h3>
-              <p className="mt-3 text-slate-600">{CONTENT.doctor.credentials}</p>
-              <p className="mt-3 text-slate-600">{CONTENT.doctor.experience}</p>
-              <p className="mt-4 text-slate-600 leading-relaxed">{CONTENT.doctor.vision}</p>
+            <div className="h-[2px] w-16 rounded-full bg-slate-900 mt-4 mb-8" />
+
+            <div className="grid gap-6">
+              {CONTENT.about.map((section, idx) => (
+                <article
+                  key={idx}
+                  className="
+                    rounded-2xl border border-slate-200 bg-white p-6
+                    shadow-sm hover:shadow-md hover:-translate-y-1
+                    transition-all duration-300
+                  "
+                >
+                  {section.heading && (
+                    <h3 className="text-xl font-semibold text-slate-800 mb-2">
+                      {section.heading}
+                    </h3>
+                  )}
+
+                  {section.intro && (
+                    <p className="text-slate-600 mb-4 font-medium">
+                      {section.intro}
+                    </p>
+                  )}
+
+                  <ul className="space-y-3 text-slate-700">
+                    {section.points.map((p, i) => (
+                     <li key={i} className="flex gap-3 items-start leading-relaxed">
+                     <FaLeaf
+                       className="mt-1 text-slate-700 shrink-0"
+                       size={12}
+                     />
+                     <span>{p}</span>
+                   </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
             </div>
           </div>
         </FadeIn>
