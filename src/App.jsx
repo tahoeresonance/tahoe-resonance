@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route, NavLink, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import personA from "./assets/PersonA.webp";
 import personB from "./assets/Steve.jpg";
@@ -271,34 +271,64 @@ const Section = ({ id, children, className = "" }) => (
     </motion.div>
    );
 
-// ---------- NAVBAR & FOOTER ----------
-const NavBar = () => (
-  <header className="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-slate-200">
-    <Container className="flex h-16 items-center justify-between">
-      <NavLink to="/" className="font-semibold tracking-tight text-slate-800">
-        {CONTENT.brand.siteName}
-      </NavLink>
-      <nav className="hidden gap-6 md:flex">
-        <NavLink className="hover:text-sky-700" to="/">Home</NavLink>
-        <NavLink className="hover:text-sky-700" to="/services">Services</NavLink>
-        <NavLink className="hover:text-sky-700" to="/amenities">Amenities</NavLink>
-        {/* <NavLink className="hover:text-sky-700" to="/testimonials">Testimonials</NavLink> */}
-        <NavLink className="hover:text-sky-700" to="/ourteam">OurTeam</NavLink>
-        <NavLink className="hover:text-sky-700" to="/about">About</NavLink>
-        <NavLink className="hover:text-sky-700" to="/contact">Contact</NavLink>
-      </nav>
-      <NavLink>
+   const ScrollToTop = () => {
+    const { pathname } = useLocation();
+  
+    useEffect(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant",
+      });
+    }, [pathname]);
+  
+    return null;
+  };
 
-      </NavLink>
-      {/* <NavLink
-        to="/contact"
-        className="inline-flex items-center rounded-xl bg-sky-600 px-4 py-2 text-white shadow hover:bg-sky-700 transition"
-      >
-        {CONTENT.cta.button}
-      </NavLink> */}
-    </Container>
-  </header>
-);
+// ---------- NAVBAR & FOOTER ----------
+const NavBar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-slate-200">
+      <Container className="relative flex h-16 items-center justify-between">
+        <NavLink
+          to="/"
+          className="font-semibold tracking-tight text-slate-800 z-10"
+        >
+          {CONTENT.brand.siteName}
+        </NavLink>
+
+        <nav className="hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2">
+          <NavLink className="hover:text-sky-700" to="/">Home</NavLink>
+          <NavLink className="hover:text-sky-700" to="/services">Services</NavLink>
+          <NavLink className="hover:text-sky-700" to="/amenities">Amenities</NavLink>
+          <NavLink className="hover:text-sky-700" to="/ourteam">OurTeam</NavLink>
+          <NavLink className="hover:text-sky-700" to="/about">About</NavLink>
+          <NavLink className="hover:text-sky-700" to="/contact">Contact</NavLink>
+        </nav>
+
+        <button
+          className="md:hidden text-2xl z-10"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
+      </Container>
+
+      {menuOpen && (
+        <nav className="md:hidden bg-white border-t border-slate-200 px-6 py-4 space-y-3">
+          <NavLink onClick={() => setMenuOpen(false)} className="block hover:text-sky-700" to="/">Home</NavLink>
+          <NavLink onClick={() => setMenuOpen(false)} className="block hover:text-sky-700" to="/services">Services</NavLink>
+          <NavLink onClick={() => setMenuOpen(false)} className="block hover:text-sky-700" to="/amenities">Amenities</NavLink>
+          <NavLink onClick={() => setMenuOpen(false)} className="block hover:text-sky-700" to="/ourteam">OurTeam</NavLink>
+          <NavLink onClick={() => setMenuOpen(false)} className="block hover:text-sky-700" to="/about">About</NavLink>
+          <NavLink onClick={() => setMenuOpen(false)} className="block hover:text-sky-700" to="/contact">Contact</NavLink>
+        </nav>
+      )}
+    </header>
+  );
+};
 
 const Footer = () => (
   <footer className="bg-slate-50 border-t border-slate-200">
@@ -1020,19 +1050,23 @@ const Contact = () => {
 };
 
 export default function App() {
-    return (
-      <div className="min-h-screen flex flex-col bg-white text-slate-800">
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/amenities" element={<Amenities />} />
-          <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/ourteam" element={<OurTeam />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        <Footer />
-      </div>
-    );
-  }
+  return (
+    <div className="min-h-screen flex flex-col bg-white text-slate-800">
+      <ScrollToTop />
+
+      <NavBar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/amenities" element={<Amenities />} />
+        <Route path="/testimonials" element={<Testimonials />} />
+        <Route path="/ourteam" element={<OurTeam />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+
+      <Footer />
+    </div>
+  );
+}
