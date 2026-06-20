@@ -773,61 +773,235 @@ const OurTeam = () => {
   );
 };
 
-const Contact = () => (
-  <main>
-    <Section>
-      <Container>
-        <FadeIn inView={false}>
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-semibold text-slate-800">Contact Us</h2>
-              
-              <div className="mt-6 space-y-4 text-left">
-              <a
-                href={`tel:${CONTENT.contact.phone}`}
-                className="flex items-center gap-4 text-slate-800 hover:text-sky-700"
-              >
-                <FaPhoneAlt className="text-xl shrink-0" />
-                <span className="text-xl">{CONTENT.contact.phone}</span>
-              </a>
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    preferredDate: "",
+    concern: "",
+  });
 
-              <a
-                href={`mailto:${CONTENT.contact.email}`}
-                className="flex items-center gap-4 text-slate-800 hover:text-sky-700"
-              >
-                <FaEnvelope className="text-xl shrink-0" />
-                <span className="text-xl">{CONTENT.contact.email}</span>
-              </a>
+  const [status, setStatus] = useState("");
+  const [errors, setErrors] = useState({});
 
-              <div className="flex items-center gap-4 text-slate-800">
-                <FaMapMarkerAlt className="text-xl shrink-0" />
-                <span className="text-xl">{CONTENT.contact.address}</span>
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Full name is required.";
+    } else if (!/^[A-Za-z\s.'-]{2,}$/.test(formData.fullName.trim())) {
+      newErrors.fullName = "Enter a valid full name.";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(formData.email.trim())) {
+      newErrors.email = "Enter a valid email address.";
+    }
+
+    if (formData.phone.trim()) {
+      const phoneDigits = formData.phone.replace(/\D/g, "");
+      if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+        newErrors.phone = "Enter a valid phone number.";
+      }
+    }
+
+    if (formData.preferredDate) {
+      const selectedDate = new Date(formData.preferredDate);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      if (selectedDate < today) {
+        newErrors.preferredDate = "Preferred date cannot be in the past.";
+      }
+    }
+
+    if (!formData.concern.trim()) {
+      newErrors.concern = "Please describe your concern.";
+    } else if (formData.concern.trim().length < 10) {
+      newErrors.concern = "Please enter at least 10 characters.";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("");
+
+    if (!validateForm()) return;
+
+    const payload = {
+      access_key: "829b2d19-e6d0-4dfc-b88d-fcf07852f6ea",
+      subject: "New Contact Request - Tahoe Resonance",
+      from_name: "Tahoe Resonance Website",
+      full_name: formData.fullName,
+      email: formData.email,
+      phone: formData.phone || "Not provided",
+      preferred_date: formData.preferredDate || "Not provided",
+      concern: formData.concern,
+      to_email: "info@tahoeresonance.com",
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus("success");
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          preferredDate: "",
+          concern: "",
+        });
+        setErrors({});
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  return (
+    <main>
+      <Section>
+        <Container>
+          <FadeIn inView={false}>
+            <div className="grid gap-10 lg:grid-cols-2">
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-semibold text-slate-800">
+                  Contact Us
+                </h2>
+
+                <div className="mt-6 space-y-4 text-left">
+                  <a href={`tel:${CONTENT.contact.phone}`} className="flex items-center gap-4 text-slate-800 hover:text-sky-700">
+                    <FaPhoneAlt className="text-xl shrink-0" />
+                    <span className="text-xl">{CONTENT.contact.phone}</span>
+                  </a>
+
+                  <a href={`mailto:${CONTENT.contact.email}`} className="flex items-center gap-4 text-slate-800 hover:text-sky-700">
+                    <FaEnvelope className="text-xl shrink-0" />
+                    <span className="text-xl">{CONTENT.contact.email}</span>
+                  </a>
+
+                  <div className="flex items-center gap-4 text-slate-800">
+                    <FaMapMarkerAlt className="text-xl shrink-0" />
+                    <span className="text-xl">{CONTENT.contact.address}</span>
+                  </div>
+
+                  <div className="flex items-center gap-4 text-slate-800">
+                    <FaClock className="text-xl shrink-0" />
+                    <span className="text-xl">{CONTENT.contact.hours}</span>
+                  </div>
+                </div>
+
+                <form className="mt-8 grid gap-4" onSubmit={handleSubmit}>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <input
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleChange}
+                        className="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring focus:ring-sky-200"
+                        placeholder="Full name"
+                        required
+                      />
+                      {errors.fullName && <p className="text-red-600 text-sm mt-1">{errors.fullName}</p>}
+                    </div>
+
+                    <div>
+                      <input
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring focus:ring-sky-200"
+                        type="email"
+                        placeholder="Email"
+                        required
+                      />
+                      {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <input
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring focus:ring-sky-200"
+                        type="tel"
+                        placeholder="Phone"
+                      />
+                      {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone}</p>}
+                    </div>
+
+                    <div>
+                      <input
+                        name="preferredDate"
+                        value={formData.preferredDate}
+                        onChange={handleChange}
+                        className="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring focus:ring-sky-200"
+                        type="date"
+                        placeholder="Preferred date"
+                      />
+                      {errors.preferredDate && <p className="text-red-600 text-sm mt-1">{errors.preferredDate}</p>}
+                    </div>
+                  </div>
+
+                  <div>
+                    <textarea
+                      name="concern"
+                      value={formData.concern}
+                      onChange={handleChange}
+                      className="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring focus:ring-sky-200"
+                      rows="5"
+                      placeholder="Briefly describe your concern"
+                      required
+                    ></textarea>
+                    {errors.concern && <p className="text-red-600 text-sm mt-1">{errors.concern}</p>}
+                  </div>
+
+                  <button className="rounded-xl bg-sky-600 px-6 py-3 text-white shadow hover:bg-sky-700 transition w-full sm:w-auto">
+                    Submit Request
+                  </button>
+
+                  {status === "success" && (
+                    <p className="text-green-700 font-medium">
+                      Thank you. Your request has been submitted successfully.
+                    </p>
+                  )}
+
+                  {status === "error" && (
+                    <p className="text-red-700 font-medium">
+                      Something went wrong. Please try again or email us directly at info@tahoeresonance.com.
+                    </p>
+                  )}
+                </form>
               </div>
 
-              <div className="flex items-center gap-4 text-slate-800">
-                <FaClock className="text-xl shrink-0" />
-                <span className="text-xl">{CONTENT.contact.hours}</span>
-              </div>
-            </div>
-
-              {/* Appointment form */}
-              <form className="mt-8 grid gap-4" onSubmit={(e)=>e.preventDefault()}>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <input className="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring focus:ring-sky-200" placeholder="Full name" required />
-                  <input className="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring focus:ring-sky-200" type="email" placeholder="Email" required />
-                </div>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <input className="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring focus:ring-sky-200" type="tel" placeholder="Phone" />
-                  <input className="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring focus:ring-sky-200" placeholder="Preferred date" />
-                </div>
-                <textarea className="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring focus:ring-sky-200" rows="5" placeholder="Briefly describe your concern"></textarea>
-                <button className="rounded-xl bg-sky-600 px-6 py-3 text-white shadow hover:bg-sky-700 transition w-full sm:w-auto">Submit Request</button>
-              </form>
-            </div>
-
-            <div>
-              <div className="aspect-video w-full overflow-hidden rounded-2xl border border-slate-200 shadow">
-                {CONTENT.contact.mapEmbedUrl ? (
+              <div>
+                <div className="aspect-video w-full overflow-hidden rounded-2xl border border-slate-200 shadow">
                   <iframe
                     className="h-full w-full"
                     src={CONTENT.contact.mapEmbedUrl}
@@ -835,19 +1009,15 @@ const Contact = () => (
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Clinic location"
                   ></iframe>
-                ) : (
-                  <div className="h-full w-full grid place-items-center text-slate-500 p-6">
-                    <p>Put your Google Maps embed URL in CONTENT.contact.mapEmbedUrl to show your location map here.</p>
-                  </div>
-                )}
+                </div>
               </div>
             </div>
-          </div>
-        </FadeIn>
-      </Container>
-    </Section>
-  </main>
-);
+          </FadeIn>
+        </Container>
+      </Section>
+    </main>
+  );
+};
 
 export default function App() {
     return (
