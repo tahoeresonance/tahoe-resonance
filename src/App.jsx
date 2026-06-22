@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, NavLink, useLocation } from "react-router-dom";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock, FaConciergeBell, FaBed, FaLeaf, FaCheckCircle, } from "react-icons/fa";
 import { motion } from "framer-motion";
-import personA from "./assets/PersonA.webp";
+import logo from "./assets/logo.png";
+import Detox from "./assets/Detox.png";
 import personB from "./assets/Steve.jpg";
 import personC from "./assets/DWK.png";
 import newHomeHero from "./assets/Home.jpg";
@@ -108,7 +109,8 @@ const CONTENT = {
       title: "Safe, Professional Detox",
       description: "Detox is often the first step in treatment, and the center provides medically supervised detox on-site. Medications for addiction treatment (MAT) are prescribed when needed. Each process is customized to the client’s history and needs, with 24/7 monitoring to ensure safety and comfort during withdrawal. Patients who go through moderate to severe withdrawals could be recommended for brief hospitalization for medical clearance. All clients will need medical clearance before being admitted to the program.<br/><br/><strong>Medically Supervised Detox Services — Coming Soon</strong>",
       imageUrl:
-        "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1600&q=80",
+        // "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1600&q=80",
+        Detox,
     },
     {
       key: "Support",
@@ -290,12 +292,17 @@ const NavBar = () => {
   return (
     <header className="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-slate-200">
       <Container className="relative flex h-16 items-center justify-between">
-        <NavLink
-          to="/"
-          className="font-semibold tracking-tight text-slate-800 z-10"
-        >
-          {CONTENT.brand.siteName}
-        </NavLink>
+      <NavLink
+        to="/"
+        className="flex items-center gap-2 font-semibold tracking-tight text-slate-800 z-10"
+      >
+        <img
+          src={logo}
+          alt="Tahoe Resonance logo"
+          className="h-08 w-10 object-contain"
+        />
+        <span>{CONTENT.brand.siteName}</span>
+      </NavLink>
 
         <nav className="hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2">
           <NavLink className="hover:text-sky-700" to="/">Home</NavLink>
