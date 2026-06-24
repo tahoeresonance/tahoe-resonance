@@ -62,16 +62,18 @@ const CONTENT = {
     {
       heading: "Treatment",
       points: [
-        "Residential detoxification for mild to moderate symtoms - [COMING SOON]",
-        "Both short term 30 day rehab, 60 day and 90 day rehab",
+        "30-Day Recovery Track",
+        "60-Day Healing & Recovery Track",
+        "90-Day Long-Term Recovery Program",
+        "Residential Medical Detox - [COMING SOON]"
       ],
     },
     {
-      heading: "Special Programs",
+      heading: "Luxury Wellness Program",
       points: [
-        "Adult Men",
-        "Adult Women",
-        "Seniors",
+        "Men's Healing Retreat",
+        "Women's Healing Retreat",
+        "Seniors Renewal Program",
       ],
     },
   ],
@@ -95,7 +97,8 @@ const CONTENT = {
       title: "Mind-Body Healing and Recreation",
       description: "To support whole-person recovery, the program incorporates holistic practices such as yoga, meditation, nutritional counseling, aromatherapy, and art and music therapy. Clients also enjoy activities such as hiking, paddle boarding near Lake Tahoe. These options provide healthy ways to manage stress, rebuild physical health, and reconnect with personal well-being.",
       imageUrl:
-        "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1600&q=80",
+        // "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1600&q=80",
+        serviceImage1,
     },
     {
       key: "Tech-Friendly",
@@ -125,7 +128,6 @@ const CONTENT = {
       title: "Amenities",
       icon: <FaConciergeBell />,
       description: [
-        "Fitness center - [ COMING SOON ]",
         "Hiking trails",
         "Gourmet meals",
         "Business center",
@@ -134,6 +136,7 @@ const CONTENT = {
         "Healthy meals",
         "In-house chef",
         "Outdoor relaxation lounge",
+        "Fitness center - [ COMING SOON ]",
         "Equestrian Therapy - [ COMING SOON ]",
       ],
     },
@@ -148,8 +151,9 @@ const CONTENT = {
         "Internet access",
         "Laundry service",
         "Outdoor space",
-        "TV/Theatre - [ COMING SOON ]",
         "Shared Room options",
+        "Television",
+        "Theatre - [ COMING SOON ]",
       ],
     },
     {
@@ -444,7 +448,7 @@ const Home = () => (
       <Container>
         <FadeIn inView={false}>
           <div className="grid gap-10 lg:grid-cols-2 items-center">
-            <img className="w-full rounded-2xl shadow" src={CONTENT.doctor.photoUrl} alt={CONTENT.doctor.name} />
+            <img className="w-full max-w-sm mx-auto rounded-2xl shadow" src={CONTENT.doctor.photoUrl} alt={CONTENT.doctor.name} />
             <div>
               <h3 className="text-2xl sm:text-3xl font-semibold text-slate-800"> {CONTENT.doctor.name}</h3>
               <p className="mt-3 text-slate-600">{CONTENT.doctor.credentials}</p>
@@ -617,13 +621,13 @@ const Services = () => {
         </Container>
       </Section>
 
-      <Section className="w-full relative">
+      {/* <Section className="w-full relative">
         <img
           src={serviceImage1}
           alt="Service Visual"
           className="w-full h-[20vh] sm:h-[80vh] object-cover"
         />
-      </Section>
+      </Section> */}
     </main>
   );
 };
